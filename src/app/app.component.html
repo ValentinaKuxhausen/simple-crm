@@ -1,10 +1,17 @@
+<!-- test if firebase works -->
+<ul>
+  <li class="text" *ngFor="let item of items | async">
+    {{item.name}}
+  </li>
+</ul>
+
 <mat-drawer-container class="mat-drawer-container" autosize>
 
   <mat-drawer class="mat-drawer" [opened]=true #drawer mode="side">
     <div class="logo-container">Logo</div>
     <ul class="menu-items">
-        <li><mat-icon class="mat-icon">fact_check</mat-icon>Dashboard</li>
-        <li><mat-icon class="mat-icon">perm_identity</mat-icon>User</li>
+      <li routerLink="/"><mat-icon class="mat-icon">fact_check</mat-icon>Dashboard</li>
+      <li routerLink="/user"><mat-icon class="mat-icon">perm_identity</mat-icon>User</li>
     </ul>
   </mat-drawer>
 
@@ -15,6 +22,12 @@
         <span>Simple CRM</span>
       </mat-toolbar-row>
     </mat-toolbar>
+
+    <!-- implement components -->
+    <div class="router-container">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
 
 </mat-drawer-container>

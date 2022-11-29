@@ -1,6 +1,24 @@
+<mat-card>
+    <table class="user-table">
+        <!-- table titles -->
+        <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>E-Mail</th>
+            <th>City</th>
+        </tr>
+        <!-- table users -->
+        <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user['customIdName']]">
+            <td>{{ user['firstName'] }}</td>
+            <td>{{ user['lastName'] }}</td>
+            <td>{{ user['email'] }}</td>
+            <td>{{ user['city'] }}</td>
+        </tr>
+    </table>
+</mat-card>
+
 <div class="positon-btn">
-    <button (click)="openDialog()" mat-fab color="primary" mat-raised-button
-    matTooltip="Add user">
+    <button (click)="openDialog()" mat-fab color="primary" mat-raised-button matTooltip="Add user">
         <mat-icon>person_add</mat-icon>
     </button>
 </div>

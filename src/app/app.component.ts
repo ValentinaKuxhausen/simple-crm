@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +8,6 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'simple-crm';
 
-  items: Observable<any[]>;
-  constructor(firestore: AngularFirestore) {
-    this.items = firestore.collection('items').valueChanges();
-  }
 
 
 }

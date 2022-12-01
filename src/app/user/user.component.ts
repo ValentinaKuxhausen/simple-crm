@@ -29,7 +29,16 @@ export class UserComponent implements OnInit {
 
   }
 
+  /**
+   * This function opens dialog in dialog-add-user.component.
+   */
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
   }
+
+  
+
+
+
+
 }

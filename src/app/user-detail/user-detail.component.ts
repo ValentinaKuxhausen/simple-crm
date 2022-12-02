@@ -29,7 +29,6 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
       this.userId = paramMap.get('id')!;
-      console.log('got id', this.userId);
       this.getUser(); 
     })
   }
@@ -46,23 +45,26 @@ export class UserDetailComponent implements OnInit {
     .valueChanges()
     .subscribe((user: any) => {
       this.user = new User(user);
-      console.log('user logged', this.user);
     })
   }
 
   /**
    * This function accesses with "this.user" to DialogEditUserComponent.
+   * We create a copy of the user with the syntax "new User(this.user.toJSON())".
    */
   editUserDetail() {
     const dialog = this.dialog.open(DialogEditUserComponent);
-    dialog.componentInstance.user = this.user;
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
   }
 
   /**
-   * This function 
+   * This function with "this.user" to DialogEditAddressComponent.
    */
   editUserAddress() {
-    this.dialog.open(DialogEditAddressComponent)
+    const dialog = this.dialog.open(DialogEditAddressComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON());
+    dialog.componentInstance.userId = this.userId;
   }
 
 

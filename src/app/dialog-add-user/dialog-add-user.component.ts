@@ -24,15 +24,14 @@ export class DialogAddUserComponent implements OnInit {
    */
   saveUser() {
     this.user.birthDate = this.birthDate.getTime();
-    console.log('current user is: ', this.user);
     this.loading = true;
 
     this.firestore
     .collection('users')
     .add(this.user.toJSON())
     .then((result: any) => {
-      console.log('adding user finished ', result);
       this.loading = false;
+      this.dialogRef.close();
     });
   }
 

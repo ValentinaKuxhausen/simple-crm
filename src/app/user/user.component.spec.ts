@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogRef } from '@angular/material/dialog';
 
 import { UserComponent } from './user.component';
 
@@ -8,7 +9,9 @@ describe('UserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserComponent ]
+      declarations: [ UserComponent ],
+      providers: [MatDialogRef]
+
     })
     .compileComponents();
 
